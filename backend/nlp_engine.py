@@ -1,7 +1,15 @@
 import re
 import spacy
+import subprocess
+import sys
 
-nlp = spacy.load("en_core_web_sm")
+# Auto-download model if missing
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    subprocess.run([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm")
+
 
 def extract_tasks(text):
     tasks = []
