@@ -15,7 +15,7 @@ export default function InputSection({ onExtract }) {
     setError(null);
 
     try {
-      const response = await fetch('https://tasksense-api.onrender.com/api/extract', {
+      const response = await fetch('https://tasksense-j7x6.onrender.com/api/extract', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: inputText }),
